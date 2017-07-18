@@ -12,8 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/aosp_g8141.mk \
-                     $(LOCAL_DIR)/aosp_g8142.mk \
-                     $(LOCAL_DIR)/adamant_maple.mk \
-                     $(LOCAL_DIR)/adamant_maple_dual.mk
+# Inherit AOSP tone common device parts
+$(call inherit-product, device/sony/maple/aosp_g8142.mk)
 
+# Override Product Name for AdamantOS
+PRODUCT_NAME := adamant_maple_dual
+PRODUCT_MODEL := Xperia XZ Premium Dual
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := G8142,maple
